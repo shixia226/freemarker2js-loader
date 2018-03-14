@@ -1,0 +1,26 @@
+{
+  "name": "freemarker2js-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shixia226/freemarker2js-loader.git"
+  },
+  "keywords": [
+    "shixia"
+  ],
+  "author": "shixia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shixia226/freemarker2js-loader/issues"
+  },
+  "homepage": "https://github.com/shixia226/freemarker2js-loader#readme",
+  "dependencies": {
+    "freemarker2js": "^1.0.5",
+    "loader-utils": "^1.1.0"
+  }
+}
