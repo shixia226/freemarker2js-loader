@@ -12,7 +12,7 @@ var regQuery = /part=([\w-]+)/i;
  * ...
  * 解析器依赖freemarker.js, 解析器是一个方法function(context){}, 传入数据后可以返回解析后的结果
  */
-function ftl2func(template, query, format) {
+function ftl2func(template, query, options) {
     var m = query.match(regQuery);
     if (m) {
         var part = m[1];
@@ -24,13 +24,15 @@ function ftl2func(template, query, format) {
             throw new Error('freemarker part [' + part + '] not found.');
         }
     }
-    var jsString = freemarker(template);
-    if (typeof format === 'function') {
-        jsString = format(jsString, freemarker)
+    var jsString = (options.es6 !== false ? 'export default ' : 'module.exports = ') + freemarker(template);
+    if (typeof options.format === 'function') {
+        jsString = options.format(jsString, freemarker)
     }
     return jsString;
 }
 module.exports = function(source) {
     this.cacheable();
-    return 'export default ' + ftl2func(source, this.resourceQuery, (util.getOptions(this) || {}).format);
+    return ftl2func(source, this.resourceQuery, (util.getOptions(this) || {}));
 }
+
+module.exports = ftl2func;
