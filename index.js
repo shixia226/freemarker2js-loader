@@ -33,5 +33,3 @@ module.exports = function(source) {
     this.cacheable();
     return ftl2func(source, this.resourceQuery, (this.query || {}));
 }
-
-module.exports = ftl2func;
