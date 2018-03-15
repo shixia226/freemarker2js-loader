@@ -1,4 +1,3 @@
-var util = require('loader-utils');
 var freemarker = require('freemarker2js');
 var regQuery = /part=([\w-]+)/i;
 
@@ -32,7 +31,7 @@ function ftl2func(template, query, options) {
 }
 module.exports = function(source) {
     this.cacheable();
-    return ftl2func(source, this.resourceQuery, (util.getOptions(this) || {}));
+    return ftl2func(source, this.resourceQuery, (this.query || {}));
 }
 
 module.exports = ftl2func;

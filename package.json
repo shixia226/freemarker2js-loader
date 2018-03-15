@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/shixia226/freemarker2js-loader#readme",
   "dependencies": {
-    "freemarker2js": "^1.0.5",
-    "loader-utils": "^1.1.0"
+    "freemarker2js": "^1.0.5"
   }
 }
